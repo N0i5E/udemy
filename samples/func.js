@@ -49,7 +49,7 @@ console.log(parseFloat(twelve));
 
 
 
-let val = 7
+let val = 7;
 
 function createAdder() {
     function addNumbers(a, b) {
@@ -63,19 +63,6 @@ let sum = adder(val, 8);
 console.log('example of function returning a function: ', sum);
 
 function createCounter() {
-    let counter = 0
-    const myFunction = function () {
-        counter = counter + 1
-        return counter;
-    };
-    return myFunction;
-}
-const increment = createCounter();
-const c1 = increment();
-const c2 = increment();
-console.log('example increment', c1, c2, c3);
-
-function createCounter() {
     let counter = 0;
     const myFunction = function () {
         counter = counter + 1;
@@ -83,14 +70,45 @@ function createCounter() {
     };
     return myFunction;
 }
-const increment = createCounter()
+const increment = createCounter();
 const c1 = increment();
 const c2 = increment();
-const c3 = increment();
+const c3 = increment(); 
 console.log('example increment', c1, c2, c3);
+
+// function createCounter() {
+//     let counter = 0;
+//     const myFunction = function () {
+//         counter = counter + 1;
+//         return counter;
+//     };
+//     return myFunction;
+// }
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
+// console.log('example increment', c1, c2, c3);
 
 let c = 4;
 const addX = x => n => n + x;
 const addThree = addX(3);
 let d = addThree(c);
 console.log('example partial application', d);
+
+function first() {
+    setTimeout( function() {
+        console.log(1);
+    }, 500 );
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+
+}
