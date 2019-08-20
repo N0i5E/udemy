@@ -62,11 +62,11 @@
 // console.log(i);
 
 let arr = [1, 15, 4],
-    i = arr.sort(compareNum);
+i = arr.sort(compareNum);
 
-    function compareNum(a,b) {
-        return a-b;
-    }
+function compareNum(a, b) {
+  return a - b;
+}
 
 console.log(arr);
 
@@ -78,7 +78,7 @@ console.log(fruits);
 var newLength = fruits.push('Апельсин');
 console.log(fruits);
 
-var last = fruits.pop(); 
+var last = fruits.pop();
 console.log(fruits);
 
 var first = fruits.shift();
@@ -103,7 +103,7 @@ console.log(shallowCopy);
 
 var years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];
 // console.log(years.0);   // синтаксическая ошибка
-console.log(years[0]);  // работает как положено
+console.log(years[0]); // работает как положено
 
 console.log(years.entries());
 
@@ -113,3 +113,36 @@ var eArr = arr1.entries();
 console.log(eArr.next().value); // [0, 'a']
 console.log(eArr.next().value); // [1, 'b']
 console.log(eArr.next().value); // [2, 'c']
+
+var user = {
+  name: "Вася",
+  surname: "Петров"
+};
+user.age = 25;
+
+// порядок перебора соответствует порядку присвоения свойства
+for (var prop in user) {
+  console.log(prop); // name, surname, age
+}
+
+//   var codes = {
+//     "+7": "Россия",
+//     "+38": "Украина",
+//     "+1": "США"
+//   };
+
+//   for (var code in codes) {
+//     // var value = codes[code];
+//     // code = +code; // ..если нам нужно именно число, преобразуем: "+7" -> 7
+//     console.log(code);
+//     // console.log( code + ": " + value ); // 7, 38, 1 во всех браузерах
+//   }
+
+var codes = {
+  // телефонные коды в формате "код страны": "название"
+  "7": "Россия",
+  "38": "Украина",
+  "1": "США"
+};
+
+for (var code in codes) console.log(code); // 1, 7, 38
