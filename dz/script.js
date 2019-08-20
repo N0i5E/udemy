@@ -1,5 +1,4 @@
-let money,
-    time;
+let money, time;
 
 function start() {
     money = +prompt("Ваш бюджет на месяц?", "5000");
