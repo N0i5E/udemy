@@ -92,6 +92,7 @@ optionalExpensesBtn.addEventListener('click', function () {
     }
 });
 
+
 countBtn.addEventListener('click', function () {
 
     if (appData.budget != undefined) {

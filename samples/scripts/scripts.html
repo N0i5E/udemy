@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .btn {
+            background-color: #333;
+            width: 50px;
+            height: 20px;
+        }
+
+        .div { 
+            position: relative;
+            height: 200px;
+            width: 200px;
+            border: 5px solid red;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+        .btn-block {
+            background-color: gray;
+            padding: 10px;
+        }
+        .btn-block button {
+            width: 30px;
+            height: 20px;
+            border: 1px solid black;
+            background-color: yellow;
+        }
+    </style>
+    <button class="btn"></button>
+    <div class="div">
+        <div class="box"></div>
+    </div>    
+
+    <div class="btn-block">
+        <button class="first"></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+
+    <ul id="parent-list">
+        <li id="post-1">Item 1</li>
+        <li id="post-2">Item 2</li>
+        <li id="post-3">Item 3</li>
+        <li id="post-4">Item 4</li>
+        <li id="post-5">Item 5</li>
+        <li id="post-6">Item 6</li>
+    </ul>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
