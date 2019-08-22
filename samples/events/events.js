@@ -81,3 +81,12 @@ let date1 = new Date(2013, 2, 1, 0, 70),
 	console.log(date1);
 	console.log(date2);
 	console.log(date1 === date2);
+
+
+let hours1 = document.querySelector('.hours');
+console.log('hours.textContent:', hours1.textContent);
+console.log('hours.textContent:', hours1.textContent.slice(1));
+console.log('hours.textContent:', hours1.textContent.slice(2));
+console.log('hours.textContent:', hours1.textContent.slice(-1));
+console.log('hours.textContent:', hours1.textContent.slice(-2));
+console.log('hours.textContent:', hours1.textContent.slice(-3));
