@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Timer 
 
-    let deadline = '2019-08-23';
+    let deadline = '2019-08-26';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -61,11 +61,11 @@ window.addEventListener('DOMContentLoaded', function () {
             seconds = timer.querySelector('.seconds'),
             timeInterval = setInterval(updateClock, 1000);
 
-        function updateClock () {
+        function updateClock() {
             let t = getTimeRemaining(endtime);
-         
+
             // if (t.hours.length < 2) {
-                
+
             //     hours.textContent = "0" + t.hours;
             // } else { 
             //     hours.textContent = t.hours;
@@ -77,9 +77,57 @@ window.addEventListener('DOMContentLoaded', function () {
             if (t.total <= 0) {
                 clearInterval(timeInterval);
             }
-        } 
+        }
     }
 
     setClock('timer', deadline);
 
+    let more = document.querySelectorAll('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    console.log(more);
+
+
+    more.forEach(function (item) {
+        item.addEventListener('click', function () {
+            console.log(item);
+            
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    close.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        more.forEach(function (item) {
+            item.classList.remove('more-splash');
+        });
+        document.body.style.overflow = '';
+    });
+
+    class Options {
+        constructor (height, width, bg, fontSize, textAlign) {
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
+            this.textAligh = textAlign;
+        }
+        addDiv() {
+            let div = document.createElement('div');
+            div.textContent = 'Текст';
+            div.style.cssText = 
+                `height: ${this.height}px;
+                width: ${this.width}px;
+                background-color: ${this.bg};
+                fontSize: ${this.fontSize}px;
+                text-align: ${this.textAlign};`;
+            document.body.appendChild(div);
+        } 
+    }   
+
+    let elem = new Options(50, 100, '#ccc', 15, 'center');
+    elem.addDiv();
 });
