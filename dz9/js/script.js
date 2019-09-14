@@ -166,11 +166,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
                     request.onreadystatechange = function () {
                         if (request.readyState < 4) {
-                            resolve()
+                            resolve();
                         } else if (request.readyState === 4 && request.status === 200) {
-                            resolve()
+                            resolve();
                         } else {
-                            reject()
+                            reject();
                         }
                     };
                     request.send(data);
@@ -197,4 +197,141 @@ window.addEventListener('DOMContentLoaded', function () {
 
     sendForm(form);
     sendForm(formBottom);
+
+    // Slider 
+
+    let slideIndex = 1, // текущий слайд
+        slides = document.querySelectorAll('.slider-item'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next'),
+        dotsWrap = document.querySelector('.slider-dots'),
+        dots = document.querySelectorAll('.dot');
+
+    showSlides(slideIndex);
+
+    function showSlides(n) {
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        slides.forEach((item) => item.style.display = 'none');
+        // for (let i = 0; i < slides.length; i++) {
+        //     slides[i].style.display = 'none';
+        // }
+        dots.forEach((item) => item.classList.remove('dot-active'));
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('dot-active');
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    prev.addEventListener('click', function () {
+        plusSlides(-1);
+    });
+
+    next.addEventListener('click', function () {
+        plusSlides(1);
+    });
+
+    dotsWrap.addEventListener('click', function (e) {
+        for (let i = 0; i < dots.length + 1; i++) {
+            if (e.target.classList.contains('dot') && event.target == dots[i - 1]) {
+                currentSlide(i);
+            }
+        }
+    });
+
+    // Calc 
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        counter = document.querySelector('.counter'),
+        totalValue = document.getElementById('total'),
+        personsSum = 0,
+        daysSum = 0,
+        total = 0;
+
+    console.log(totalValue);
+    console.log(totalValue.innerHTML);
+
+    totalValue.innerHTML = 0;
+
+    function calcTotal () {
+        let person = +persons.value,
+            days = +restDays.value,
+            city = +place.value;            
+
+        if ((person == '' || days == '') || (person == 0 || days == 0 ))  {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = (days + person) * 4000 * city;
+            // totalValue.innerHTML = total;
+        }
+    }
+    // restDays.addEventListener('input', function () {
+    //     daysSum = +this.value;
+    //     total = (daysSum + personsSum) * 4000;
+
+    //     if (persons.value == '') {
+    //         totalValue.innerHTML = 0;
+    //     } else {
+    //         totalValue.innerHTML = total;
+    //     }
+    // });
+
+    counter.addEventListener('input', function () {
+        let target = event.target;
+
+
+        if (target && target.classList.contains('counter-block-input')) {
+            calcTotal();    
+        }
+        if (target && target.options) {
+            calcTotal();    
+        }
+
+    });
+
+    //     let persons = document.querySelectorAll('.counter-block-input')[0],
+    //     restDays = document.querySelectorAll('.counter-block-input')[1],
+    //     place = document.getElementById('select'),
+    //     totalValue = document.getElementById('total'),
+    //     counter = document.querySelector('.counter'),
+    //     personsSum = 0,
+    //     daysSum = 0,
+    //     total = 0;
+
+    // totalValue.textContent = 10;
+
+    // function calcTotal() {
+    //     let person = +persons.value,
+    //         days = +restDays.value,
+    //         sity = +place.value;
+    //     if ((person == '' || days == '') || (person == 0 || days == 0)) {
+    //         totalValue.textContent = 0;
+    //     } else {
+    //         totalValue.textContent = (days + person) * 4000 * sity;
+    //     }
+    // }
+
+    // counter.addEventListener('input', function (event) {
+    //     let target = event.target;
+
+    //     if (target && target.classList.contains('counter-block-input')) {
+    //         calcTotal();
+    //     }
+    //     if (target && target.options) {
+    //         calcTotal();
+    //     }
+    // });
+
 });
