@@ -1,0 +1,28 @@
+{
+  "name": "webpackTest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "uglify-js": "^3.6.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "core-js": "^2.6.9",
+    "lodash": "^4.17.15"
+  }
+}
