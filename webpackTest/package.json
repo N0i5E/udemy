@@ -23,6 +23,6 @@
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "core-js": "^2.6.9",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   }
 }
